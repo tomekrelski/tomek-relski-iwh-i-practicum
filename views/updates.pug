@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+    head
+        title= `${title}`
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        .form-wrapper
+            p Add a new sport:
+            form(action="/update-cobj", method="POST")
+                label(for="newName") Name
+                input(type="text", name="newName", required)
+                label(for="newType") Type
+                input(type="text", name="newType", required)
+                label(for="newEquipment") Equipment
+                input(type="text", name="newEquipment", required)
+                input(type="submit", value="Submit")
+        
+        a(href='/') Return to the homepage
