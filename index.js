@@ -55,6 +55,32 @@ app.get('/update-cobj', async (req, res) => {
 
 // * Code for Route 3 goes here
 
+app.post("/update-cobj", async (req, res) => {
+    try {
+        const properties = {
+            name: req.body.newName,
+            type: req.body.newType,
+            equipment: req.body.newEquipment,
+        };
+        console.log(properties);
+        const updateURL = "https://api.hubapi.com/crm/v3/objects/sports";
+        const headers = {
+            Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+            "Content-Type": "application/json",
+        };
+        await axios.post(
+            updateURL,
+            { properties: properties },
+            { headers }
+        );
+        res.redirect("/");
+    } catch (error) {
+        console.log(error);
+        res.render("Error", { title: "Error 500", error });
+    }
+});
+
+
 /** 
 * * This is sample code to give you a reference for how you should structure your calls. 
 
