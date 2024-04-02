@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    h1 Sports Data
+    table
+      thead
+        tr
+          th Name
+          th Type
+          th Equipment
+      tbody
+        each sport in sportsData
+          tr
+            td= sport.properties.name
+            td= sport.properties.type
+            td= sport.properties.equipment
+    a(href='/update-cobj') Add to this table
+
